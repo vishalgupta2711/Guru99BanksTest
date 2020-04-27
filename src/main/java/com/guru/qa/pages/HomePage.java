@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.guru.qa.base.TestBase;
 
@@ -32,7 +34,7 @@ public class HomePage extends TestBase{
 	@FindBy(xpath = "//a[contains(text(),'Payment Gateway Project')]")
 	WebElement PayGateProjBtn;
 	
-	@FindBy(xpath = "//a[contains(text(),'New Tours Project')]")
+	@FindBy(xpath = "//a[contains(text(),'New Tours')]")
 	WebElement NewToursProjBtn;
 	
 	@FindBy(xpath = "//*[@id=\"navbar-brand-centered\"]/ul/li[11]/a")
@@ -114,9 +116,28 @@ public class HomePage extends TestBase{
 		return new NewAccountPage();
 	}
 	
-	public DepositPage clickOnDepositLink() throws InterruptedException {
+	public DepositPage clickOnDepositLink() {
 		
-		DepositBtn.click();
+		//I am trying to switch to the frame which contains video ad and trying to click on the close button of that ad
+		
+		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='Flow Close Button']")));
+		Boolean frameClose = driver.findElement(By.xpath("//div[@id = 'closeBtn']")).isDisplayed();
+		System.out.println(frameClose);
+		
+		//In the below line of code I am waiting for the close btn in the add to appear before clicking on it.
+		
+		new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id = 'closeBtn']"))).click();
+	
+		// Switching back from the frame to the original web page.
+		
+		driver.switchTo().defaultContent();
+		
+		DepositBtn = driver.findElement(By.xpath("//a[contains(text(),'Deposit')]"));
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", DepositBtn);
+		
+	//	DepositBtn.click();
 		return new DepositPage();
 	}
 }

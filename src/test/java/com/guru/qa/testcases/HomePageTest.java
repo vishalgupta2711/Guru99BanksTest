@@ -113,7 +113,7 @@ public class HomePageTest extends TestBase {
 	}
 	
 	@Test(priority = 12)
-	public void clickOnDepositPageTest() throws InterruptedException {
+	public void clickOnDepositPageTest() {
 		depositPage = homePage.clickOnDepositLink();
 	}
 	
