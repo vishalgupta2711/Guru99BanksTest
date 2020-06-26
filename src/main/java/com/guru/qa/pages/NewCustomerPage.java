@@ -1,15 +1,16 @@
 package com.guru.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.guru.qa.base.TestBase;
+import com.guru.qa.util.Xls_Reader;
 
 public class NewCustomerPage extends TestBase {
 
-	
 	//Page Factory - OR for Home page
 	
 	@FindBy(xpath = "//input[@name = 'name']")
@@ -84,10 +85,26 @@ public class NewCustomerPage extends TestBase {
 		Password.sendKeys(password);
 		
 		SubmitBtn.click();
-		
-		//driver.switchTo().alert().accept();
-		
-		
-	}
 	
+		//printDataOnExcel(rowNumber);
+		//driver.switchTo().alert().accept();		
+	}	
+	public static void printDataOnExcel(int rowNumber) {
+		Xls_Reader reader = new Xls_Reader("F:\\Vishal_Offc Work\\Workspace\\Guru99BanksTest\\src"
+				+ "\\main\\java\\com\\guru\\qa\\testdata\\Guru99_NewCustomerCreationPage_FRAMEWORK.xlsx");
+		
+		int rowCount = reader.getRowCount("NewCustomers");
+		System.out.println(rowCount);
+		
+			if(!reader.isSheetExist("CustomerIdDataSheet")) {
+				reader.addSheet("CustomerIdDataSheet");
+				reader.addColumn("CustomerIdDataSheet", "CustomerId");
+				//reader.setCellData("CustomerIdDataSheet", "CustomerId", 1, "//*[@id=\"customer\"]/tbody/tr[4]/td[2]");
+			}
+			String custId = driver.findElement(By.xpath("//*[@id=\"customer\"]/tbody/tr[4]/td[2]")).getText();
+			//*[@id="customer"]/tbody/tr[4]/td[2]
+			System.out.println(custId);
+			reader.setCellData("CustomerIdDataSheet", "CustomerId", rowNumber, custId);
+	}
 }
+

@@ -2,11 +2,13 @@ package com.guru.qa.testcases;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.guru.qa.util.Xls_Reader;
 import com.guru.qa.base.TestBase;
 import com.guru.qa.pages.HomePage;
 import com.guru.qa.pages.LoginPage;
@@ -20,6 +22,7 @@ public class NewCustomerPageTest extends TestBase {
 	HomePage homePage;
 	NewCustomerPage newCustomerPage;
 	String sheetName = "NewCustomers";
+	int rowNumber =2;
 	
 	public NewCustomerPageTest() {
 		super();
@@ -49,6 +52,8 @@ public class NewCustomerPageTest extends TestBase {
 		newCustomerPage.createNewCustomer(CustName, gender, dob, DOB_Year, add, city, state, pinCode,
 				mobNo, email, password);
 		
+		NewCustomerPage.printDataOnExcel(rowNumber);
+		rowNumber++;
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
 	
