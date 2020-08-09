@@ -2,18 +2,20 @@ package com.guru.qa.testcases;
 
 import java.io.IOException;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.guru.qa.util.Xls_Reader;
+import com.guru.qa.Utilities.Xls_Reader;
+import com.guru.qa.Utilities.TestUtility;
 import com.guru.qa.base.TestBase;
 import com.guru.qa.pages.HomePage;
 import com.guru.qa.pages.LoginPage;
 import com.guru.qa.pages.NewCustomerPage;
-import com.guru.qa.util.TestUtil;
+
 
 public class NewCustomerPageTest extends TestBase {
 
@@ -28,20 +30,21 @@ public class NewCustomerPageTest extends TestBase {
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() {
 		
 		initialization();
+		Log.info("Application Launched Successfully");
 		homePage = new HomePage();
 		newCustomerPage = new NewCustomerPage();
 		loginPage = new LoginPage();
-		homePage = loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.validateLogin(property.getProperty("username"), property.getProperty("password"));
 		newCustomerPage = homePage.clickOnNewCustomerlink();
 	}
 	
 	@DataProvider
-	public Object[][] getGuru99NewCustomerTestData() {
-		Object data[][] = TestUtil.getTestData(sheetName);
+	public Object[][] getGuru99NewCustomerTestData() throws InvalidFormatException {
+		Object data[][] = TestUtility.getTestData(sheetName);
 		return data;
 	}
 	
@@ -54,11 +57,12 @@ public class NewCustomerPageTest extends TestBase {
 		
 		NewCustomerPage.printDataOnExcel(rowNumber);
 		rowNumber++;
-		TestUtil.takeScreenshotAtEndOfTest();
+		TestUtility.takeScreenshotAtEndOfTest();
+		Log.info("Verified validateNewCustomerTestData");
 	}
 	
-	@AfterMethod
+	/*@AfterMethod
 	public void tearDown() {
 		driver.quit();
-	}
+	}*/
 }

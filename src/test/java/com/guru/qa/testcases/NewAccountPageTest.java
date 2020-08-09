@@ -2,16 +2,17 @@ package com.guru.qa.testcases;
 
 import java.io.IOException;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.guru.qa.Utilities.TestUtility;
 import com.guru.qa.base.TestBase;
 import com.guru.qa.pages.HomePage;
 import com.guru.qa.pages.LoginPage;
 import com.guru.qa.pages.NewAccountPage;
-import com.guru.qa.util.TestUtil;
 
 public class NewAccountPageTest extends TestBase {
 	
@@ -23,21 +24,22 @@ public class NewAccountPageTest extends TestBase {
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() {
 		
 		initialization();
+		Log.info("Application Launched Successfully");
 		homePage = new HomePage();
 		loginPage = new LoginPage();
 		newAccountPage = new NewAccountPage();
-		homePage = loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.validateLogin(property.getProperty("username"), property.getProperty("password"));
 		newAccountPage = homePage.clickOnNewAccountLink();
 	}
 	
 	
 	@DataProvider
-	public Object[][] getGuru99NewAccountTestData() {
-		Object data[][] = TestUtil.getTestData(sheetName);
+	public Object[][] getGuru99NewAccountTestData() throws InvalidFormatException {
+		Object data[][] = TestUtility.getTestData(sheetName);
 		return data;
 	}
 	
@@ -45,13 +47,13 @@ public class NewAccountPageTest extends TestBase {
 	public void validateNewAccountTestData (String custId, String AccountType
 			, String initDeposit) throws IOException {
 		newAccountPage.addNewAccount(custId,AccountType ,initDeposit);
-		TestUtil.takeScreenshotAtEndOfTest();
-		
+		TestUtility.takeScreenshotAtEndOfTest();
+		Log.info("Verified validateNewAccountTestData");
 	}
 	
-	@AfterMethod
+	/*@AfterMethod
 	public void tearDown() {
 		driver.quit();
-	}
+	}*/
 
 }

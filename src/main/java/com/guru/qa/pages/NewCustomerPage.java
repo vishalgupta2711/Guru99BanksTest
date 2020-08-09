@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.guru.qa.base.TestBase;
-import com.guru.qa.util.Xls_Reader;
+import com.guru.qa.Utilities.Xls_Reader;
 
 public class NewCustomerPage extends TestBase {
 

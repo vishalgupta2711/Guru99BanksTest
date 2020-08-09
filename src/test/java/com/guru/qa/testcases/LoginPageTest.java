@@ -18,9 +18,10 @@ public class LoginPageTest extends TestBase{
 		super();
 	}
 
-	@BeforeMethod()
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() {
 		initialization();
+		Log.info("Application Launched Successfully");
 		loginPage = new LoginPage();
 		homePage = new HomePage();
 	}
@@ -37,6 +38,7 @@ public class LoginPageTest extends TestBase{
 		else {
 			System.out.println("Title is not matching");
 		}
+		Log.info("Verified loginPageTitleTest");
 	}
 	
 	@Test(priority = 2)
@@ -44,6 +46,7 @@ public class LoginPageTest extends TestBase{
 		Boolean flag = loginPage.validateLoginPageLogo();
 		Assert.assertTrue(flag);	
 		System.out.println(flag);
+		Log.info("Verified loginPageLogoTest");
 	}
 	
 	@Test(priority = 3)
@@ -51,15 +54,17 @@ public class LoginPageTest extends TestBase{
 		Boolean flag = loginPage.validateLoginPageLabel();
 		Assert.assertTrue(flag);
 		System.out.println(flag);
+		Log.info("Verified loginPageLabelTest");
 	}
 	
 	@Test(priority = 4)
 	public void loginTest() {
-		homePage = loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.validateLogin(property.getProperty("username"), property.getProperty("password"));
 		System.out.println("Login Successful");
+		Log.info("Verified loginTest");
 	}
-	@AfterMethod
+	/*@AfterMethod
 	public void tearDown() {
 		driver.quit();
-	}
+	}*/
 }
