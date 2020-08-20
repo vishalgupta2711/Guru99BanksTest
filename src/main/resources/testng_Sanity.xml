@@ -8,8 +8,8 @@
 		
 		    <test name="Guru99 Banks Test Cases">
 		         <classes>
-		       	<!--  <class name="com.guru.qa.testcases.LoginPageTest"/>  -->
-		          	  <class name="com.guru.qa.testcases.HomePageTest"/>  
+		         	<class name="com.guru.qa.testcases.LoginPageTest"/>
+		          	  <!-- class name="com.guru.qa.testcases.HomePageTest"/> -->  
 		          </classes>
 		     </test> <!-- Test -->
 </suite> <!-- Suite -->	

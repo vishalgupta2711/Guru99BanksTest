@@ -74,7 +74,7 @@ public class TestUtility extends TestBase
 	}
 
 	//To Switch into a Frame using Name.
-	public void switchToFrame(String frameName) 
+	public static void switchToFrame(String frameName) 
 	{
 		try 
 		{
@@ -92,7 +92,7 @@ public class TestUtility extends TestBase
 	}
 
 	//To Switch into a Frame using Index.
-	public void switchToFrame(int frame) 
+	public static void switchToFrame(int frame) 
 	{
 		try 
 		{
@@ -139,16 +139,21 @@ public class TestUtility extends TestBase
 	}
 	
 	//To Handle Multiple Windows or Switch Between Multiple Windows.
-	public void switchWindow(WebDriver driver, String firstWindow, String secondWindow) 
+	public static void switchWindow(WebDriver driver, String firstWindow, String secondWindow) 
 	{
 		Set<String> windowHandles = driver.getWindowHandles();
+		int count = windowHandles.size();
+		System.out.println("Total no. of windows is : "+count);
+		
 		for(String windows : windowHandles) 
 		{
+			System.out.println("windows is : "+windows);
+			System.out.println("windowHandles is : "+windowHandles);
 			if(!windows.equals(firstWindow) && !windows.equals(secondWindow)) 
 			{
 				driver.switchTo().window(windows);
 			}
-		}
+		}			
 	}
 
 	//To Check Element is Displayed or No.

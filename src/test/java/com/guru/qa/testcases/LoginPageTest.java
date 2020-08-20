@@ -63,6 +63,12 @@ public class LoginPageTest extends TestBase{
 		System.out.println("Login Successful");
 		Log.info("Verified loginTest");
 	}
+	
+	@Test(priority = 5)
+	public void functionality1Test2() {
+		//extentTest = extent.startTest("functionality1Test2");
+		Assert.assertEquals("vishal", "gupta");
+	}
 	/*@AfterMethod
 	public void tearDown() {
 		driver.quit();

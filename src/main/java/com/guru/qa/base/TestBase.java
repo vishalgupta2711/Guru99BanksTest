@@ -101,13 +101,13 @@ public class TestBase
 	@AfterTest
 	public void endReport()
 	{
-		
+		//driver.close();
 	}
 	
 	@AfterMethod(alwaysRun=true)
 	public void tearDown() throws IOException
 	{
-		driver.quit();
+		//driver.quit();
 		Log.info("Browser Terminated");
 		Log.info("-----------------------------------------------");
 	}

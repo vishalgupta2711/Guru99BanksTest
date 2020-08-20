@@ -15,6 +15,14 @@ public class ExtentReportListener extends ExtentReportSetup implements ITestList
 	public void onTestStart(ITestResult result) 
 	{
 		extentTest = extent.createTest(result.getMethod().getMethodName());
+		try 
+		{
+			extentTest.addScreenCaptureFromPath(TestUtility.getScreenshot(driver, result.getMethod().getMethodName()));
+		} 
+		catch(IOException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSuccess(ITestResult result) 

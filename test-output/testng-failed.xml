@@ -1,32 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Guru99 Banks test automation suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.guru.qa.TestListeners.ExtentReportListener"/>
-  </listeners>
-  <test name="Guru99 Banks Test Cases(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.guru.qa.testcases.HomePageTest">
+      <class name="com.guru.qa.testcases.CommonFunctionUsageTest">
         <methods>
-          <include name="validateSecPrjBtnTest"/>
-          <include name="clickOnNewCustomerLinkTest"/>
-          <include name="validateSEOBtnTest"/>
-          <include name="validateTcomPrjBtnTest"/>
-          <include name="functionality1Test2"/>
-          <include name="validateSeleniumBtnTest"/>
-          <include name="clickOnNewAccountPageTest"/>
-          <include name="validateInsPrjBtnTest"/>
-          <include name="validateBankPrjBtnTest"/>
-          <include name="clickOnDepositPageTest"/>
-          <include name="validateAgilePrjBtnTest"/>
-          <include name="validatePayGatPrjBtnTest"/>
           <include name="endReport"/>
-          <include name="tearDown"/>
-          <include name="validateNewToursPrjBtnTest"/>
-          <include name="setLog4j"/>
           <include name="setUp"/>
+          <include name="verifyAlertHandling"/>
+          <include name="tearDown"/>
+          <include name="setLog4j"/>
         </methods>
-      </class> <!-- com.guru.qa.testcases.HomePageTest -->
+      </class> <!-- com.guru.qa.testcases.CommonFunctionUsageTest -->
     </classes>
-  </test> <!-- Guru99 Banks Test Cases(failed) -->
-</suite> <!-- Failed suite [Guru99 Banks test automation suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

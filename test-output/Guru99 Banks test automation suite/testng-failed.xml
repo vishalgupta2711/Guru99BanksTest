@@ -6,27 +6,15 @@
   </listeners>
   <test name="Guru99 Banks Test Cases(failed)">
     <classes>
-      <class name="com.guru.qa.testcases.HomePageTest">
+      <class name="com.guru.qa.testcases.LoginPageTest">
         <methods>
-          <include name="validateSecPrjBtnTest"/>
-          <include name="clickOnNewCustomerLinkTest"/>
-          <include name="validateSEOBtnTest"/>
-          <include name="validateTcomPrjBtnTest"/>
+          <include name="setUp"/>
           <include name="functionality1Test2"/>
-          <include name="validateSeleniumBtnTest"/>
-          <include name="clickOnNewAccountPageTest"/>
-          <include name="validateInsPrjBtnTest"/>
-          <include name="validateBankPrjBtnTest"/>
-          <include name="clickOnDepositPageTest"/>
-          <include name="validateAgilePrjBtnTest"/>
-          <include name="validatePayGatPrjBtnTest"/>
           <include name="endReport"/>
           <include name="tearDown"/>
-          <include name="validateNewToursPrjBtnTest"/>
           <include name="setLog4j"/>
-          <include name="setUp"/>
         </methods>
-      </class> <!-- com.guru.qa.testcases.HomePageTest -->
+      </class> <!-- com.guru.qa.testcases.LoginPageTest -->
     </classes>
   </test> <!-- Guru99 Banks Test Cases(failed) -->
 </suite> <!-- Failed suite [Guru99 Banks test automation suite] -->

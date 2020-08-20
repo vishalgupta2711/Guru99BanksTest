@@ -3,25 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.guru.qa.testcases.HomePageTest">
+      <class name="com.guru.qa.testcases.CommonFunctionUsageTest">
         <methods>
-          <include name="validateSecPrjBtnTest"/>
-          <include name="clickOnNewCustomerLinkTest"/>
-          <include name="validateSEOBtnTest"/>
-          <include name="validateTcomPrjBtnTest"/>
-          <include name="functionality1Test2"/>
-          <include name="clickOnNewAccountPageTest"/>
-          <include name="validateBankPrjBtnTest"/>
-          <include name="clickOnDepositPageTest"/>
-          <include name="validateAgilePrjBtnTest"/>
-          <include name="validatePayGatPrjBtnTest"/>
           <include name="endReport"/>
-          <include name="tearDown"/>
-          <include name="validateNewToursPrjBtnTest"/>
-          <include name="setLog4j"/>
           <include name="setUp"/>
+          <include name="verifyAlertHandling"/>
+          <include name="tearDown"/>
+          <include name="setLog4j"/>
         </methods>
-      </class> <!-- com.guru.qa.testcases.HomePageTest -->
+      </class> <!-- com.guru.qa.testcases.CommonFunctionUsageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
