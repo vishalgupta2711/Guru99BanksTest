@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-08-20T14:38:01Z" name="Default suite" finished-at="2020-08-20T14:38:25Z" duration-ms="23819">
+  <suite started-at="2020-08-24T11:58:35Z" name="Default suite" finished-at="2020-08-24T11:59:40Z" duration-ms="64535">
     <groups>
     </groups>
-    <test started-at="2020-08-20T14:38:01Z" name="Default test" finished-at="2020-08-20T14:38:25Z" duration-ms="23819">
+    <test started-at="2020-08-24T11:58:35Z" name="Default test" finished-at="2020-08-24T11:59:40Z" duration-ms="64535">
       <class name="com.guru.qa.testcases.CommonFunctionUsageTest">
-        <test-method is-config="true" signature="setLog4j()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@25df00a0]" started-at="2020-08-20T20:08:01Z" name="setLog4j" finished-at="2020-08-20T20:08:01Z" duration-ms="48" status="PASS">
+        <test-method is-config="true" signature="setLog4j()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:28:35Z" name="setLog4j" finished-at="2020-08-24T17:28:35Z" duration-ms="99" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setLog4j -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@25df00a0]" started-at="2020-08-20T20:08:01Z" name="setUp" finished-at="2020-08-20T20:08:19Z" duration-ms="17951" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:28:35Z" name="setUp" finished-at="2020-08-24T17:28:54Z" duration-ms="18871" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyAutoCompleteTest()[pri:1, instance:com.guru.qa.testcases.CommonFunctionUsageTest@25df00a0]" started-at="2020-08-20T20:08:19Z" name="verifyAutoCompleteTest" finished-at="2020-08-20T20:08:24Z" duration-ms="5014" status="PASS">
+        <test-method signature="verifyAlertHandling()[pri:1, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:28:54Z" name="verifyAlertHandling" finished-at="2020-08-24T17:28:58Z" duration-ms="3554" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAutoCompleteTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@25df00a0]" started-at="2020-08-20T20:08:24Z" name="tearDown" finished-at="2020-08-20T20:08:25Z" duration-ms="735" status="PASS">
+        </test-method> <!-- verifyAlertHandling -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:28:58Z" name="tearDown" finished-at="2020-08-24T17:28:58Z" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@25df00a0]" started-at="2020-08-20T20:08:25Z" name="endReport" finished-at="2020-08-20T20:08:25Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:29:01Z" name="setUp" finished-at="2020-08-24T17:29:18Z" duration-ms="16426" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyWindowsHandlingAndDatePicker(java.lang.String, java.lang.String)[pri:2, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:29:18Z" name="verifyWindowsHandlingAndDatePicker" data-provider="getSeleEasyTestData" finished-at="2020-08-24T17:29:40Z" duration-ms="22166" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vishalg@testmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[09/10/1968]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyWindowsHandlingAndDatePicker -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:29:40Z" name="tearDown" finished-at="2020-08-24T17:29:40Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.guru.qa.testcases.CommonFunctionUsageTest@6b09fb41]" started-at="2020-08-24T17:29:40Z" name="endReport" finished-at="2020-08-24T17:29:40Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->

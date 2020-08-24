@@ -1,5 +1,7 @@
 package com.guru.qa.pages;
 
+import java.util.Date;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -60,11 +62,11 @@ public class CommonFunctionUsage extends TestBase {
 	}
 	
 	//Actions
-	public void autoCompleteTB() throws InterruptedException {
+	public void autoCompleteTB(String autoCompleteDDValue) throws InterruptedException {
 		
 		
 		TestUtility.switchToFrame(0); //Switching to frame with index
-		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, "java"); //function to sendkeys to textboxes
+		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, autoCompleteDDValue); //function to sendkeys to textboxes
 		TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValue); //Function to select bootstrap dropdown values
 		driver.switchTo().defaultContent();
 		
@@ -82,23 +84,23 @@ public class CommonFunctionUsage extends TestBase {
 		TestUtility.acceptAlertPopup(); //Function for handling AlertPopups
 	}
 	
-	public void handleWindowPopUp() {
+	public void handleWindowPopUp(String childEmail) {
 		
 		JavaScriptUtilities.clickElementByJavaScript(WindowPopupModalBtn, driver);
 		JavaScriptUtilities.clickElementByJavaScript(LikeUsOnFBBtn, driver);
 		
 		String parentWindow = driver.getWindowHandle();
-		TestUtility.switchWindow(driver, parentWindow, "");	//Function to switch to different window
-		ChildWindowEmailField.sendKeys("test@gmail.com");   //just to confirm if control switched to child window
+		TestUtility.switchWindow(driver, parentWindow, "");	//Function to switch to different window 
+		TestUtility.sendKeys(driver, ChildWindowEmailField, Constants.SHORT_WAIT, childEmail);  //just to confirm if control switched to child window
 		driver.close();
 		driver.switchTo().window(parentWindow);		        // To go back to the parent window
 	}
 	
-	public void datePicker() {
+	public void datePicker(String datePickerValue) {
 		
 		JavaScriptUtilities.clickElementByJavaScript(datePickerBtn, driver);
 		JavaScriptUtilities.clickElementByJavaScript(BootStrapdatePickerBtn, driver);
-		TestUtility.sendKeys(driver, dateSelectField, Constants.SHORT_WAIT, "03/10/1960");
+		TestUtility.sendKeys(driver, dateSelectField, Constants.SHORT_WAIT, datePickerValue);
 	}
 	
 }
