@@ -67,7 +67,14 @@ public class CommonFunctionUsage extends TestBase {
 		
 		TestUtility.switchToFrame(0); //Switching to frame with index
 		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, autoCompleteDDValue); //function to sendkeys to textboxes
-		TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValue); //Function to select bootstrap dropdown values
+		
+		if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJavaScript)) {
+			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJavaScript); //Function to select bootstrap dropdown values
+		}
+		else if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJava)){
+			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJava);
+		}
+		
 		driver.switchTo().defaultContent();
 		
 		JavaScriptUtilities.clickElementByJavaScript(SelectMenuLink, driver); //clicking on element by javascript

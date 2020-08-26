@@ -30,7 +30,7 @@ public class CommonFunctionUsageTest extends TestBase {
 	}
 	
 	//To run below test case go to config.properties file and uncomment url = https://jqueryui.com/autocomplete/. comment all other url's
-	/*@DataProvider
+	@DataProvider
 	public Object[][] getAutoCompleteTestData() throws InvalidFormatException {
 		Object data[][] = TestUtility.getTestData(sheetName1);
 		return data;
@@ -39,11 +39,11 @@ public class CommonFunctionUsageTest extends TestBase {
 	@Test(priority =1 , dataProvider = "getAutoCompleteTestData")
 	public void validateAutoCompleteDataFromExcel(String autoCompleteDDValue) throws InterruptedException {
 		commonFunctionUsage.autoCompleteTB(autoCompleteDDValue);
-	}*/
+	}
 	
 	
 	//To run below set of test cases go to config.properties file and uncomment url = https://www.seleniumeasy.com/test/. comment all other url's
-	@DataProvider
+	/*@DataProvider
 	public Object[][] getSeleEasyTestData() throws InvalidFormatException {
 		Object data[][] = TestUtility.getTestData(sheetName2);
 		return data;
@@ -58,7 +58,7 @@ public class CommonFunctionUsageTest extends TestBase {
 	public void verifyWindowsHandlingAndDatePicker(String childEmail, String datePickerValue) {
 		commonFunctionUsage.handleWindowPopUp(childEmail);
 		commonFunctionUsage.datePicker(datePickerValue);
-	}
+	}*/
 	
 	@AfterMethod
 	public void tearDown() {
