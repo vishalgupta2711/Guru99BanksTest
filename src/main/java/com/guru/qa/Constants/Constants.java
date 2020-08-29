@@ -21,8 +21,8 @@ public class Constants
 	
 	// Below four strings are used in CommonFunctionUsage class
 	public static final String ListDropdownLocator = "//ul[@id=\"ui-id-1\"]//li";
-	public static final String AutoPopUpValueJavaScript = "JavaScript";
-	public static final String AutoPopUpValueJava = "Java";
+	//public static final String AutoPopUpValueJavaScript = "JavaScript";
+	//public static final String AutoPopUpValueJava = "Java";
 	
 	public static final String SelectaFileDDLocator = "//div[@id = 'ui-id-2']";
 	public static final String SelectaFileDDValue = "ui.jQuery.js";

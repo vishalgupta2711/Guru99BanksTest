@@ -204,6 +204,16 @@ public class TestUtility extends TestBase
 		select = new Select(element);
 		select.selectByValue(value);
 	}
+	
+	//To find and select exact dropdown value from excel, even if 100 values are present in dd it will fetch only the value from excel,no need to write 100 if else statements for all the dropdowns
+	public static void selectExactDDValue(String xpathValue , String DDValue) {
+		List<WebElement> options = driver.findElements(By.xpath(xpathValue));
+		for(WebElement option : options) {
+		    if (option.getText().equals(DDValue)) {
+		        option.click();
+		    }
+		}
+	}
 
 	//To Print all Values and Select a Required Value from Drop Down.
 	public static void selectDropDownValue(String xpathValue, String value) 
@@ -232,6 +242,8 @@ public class TestUtility extends TestBase
 
 		for(WebElement listOfDropDownValues : dropDownValues) 
 		{
+			System.out.println("listOfDropDownValues : "+listOfDropDownValues);
+			System.out.println("dropDownValues : " +dropDownValues);
 			toolsDropDownValues.add(listOfDropDownValues.getText());
 		}
 		return toolsDropDownValues;

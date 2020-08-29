@@ -5,9 +5,9 @@
     <classes>
       <class name="com.guru.qa.testcases.CommonFunctionUsageTest">
         <methods>
-          <include name="verifyDatePicker"/>
           <include name="endReport"/>
           <include name="setUp"/>
+          <include name="validateAutoCompleteDataFromExcel" invocation-numbers="0 1"/>
           <include name="setLog4j"/>
           <include name="tearDown"/>
         </methods>

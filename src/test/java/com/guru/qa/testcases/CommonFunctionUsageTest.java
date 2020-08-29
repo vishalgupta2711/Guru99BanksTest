@@ -36,7 +36,7 @@ public class CommonFunctionUsageTest extends TestBase {
 		return data;
 	}
 	
-	@Test(priority =1 , dataProvider = "getAutoCompleteTestData")
+	@Test(priority =1 , dataProvider = "getAutoCompleteTestData" )
 	public void validateAutoCompleteDataFromExcel(String autoCompleteDDValue) throws InterruptedException {
 		commonFunctionUsage.autoCompleteTB(autoCompleteDDValue);
 	}

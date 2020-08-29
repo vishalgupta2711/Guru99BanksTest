@@ -52,6 +52,9 @@ public class CommonFunctionUsage extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='dd/mm/yyyy']")
 	WebElement dateSelectField;
 	
+	@FindBy(xpath = "//ul[@id=\"ui-id-1\"]//li")
+	WebElement dropdown;
+	
 	@FindBy(css = "#easycont > div > div.col-md-6.text-left > div:nth-child(4) > div.panel-body > button")
 	WebElement JavaScriptClickMe;
 	
@@ -68,12 +71,13 @@ public class CommonFunctionUsage extends TestBase {
 		TestUtility.switchToFrame(0); //Switching to frame with index
 		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, autoCompleteDDValue); //function to sendkeys to textboxes
 		
-		if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJavaScript)) {
+		TestUtility.selectExactDDValue(Constants.ListDropdownLocator,autoCompleteDDValue); //selecting exact dd value directly from excel, dd value is not hardcoded in any utilities
+		/*if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJavaScript)) {
 			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJavaScript); //Function to select bootstrap dropdown values
 		}
 		else if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJava)){
 			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJava);
-		}
+		}*/
 		
 		driver.switchTo().defaultContent();
 		
