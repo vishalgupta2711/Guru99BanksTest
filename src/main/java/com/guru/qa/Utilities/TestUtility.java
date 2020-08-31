@@ -215,6 +215,21 @@ public class TestUtility extends TestBase
 		}
 	}
 
+	// To print all the values from the dd list and select the one from excel when a match is found
+	public static void selectDDWhenConditionMet(String xpathValue , String DDValue) {
+		
+		List<WebElement> ddList = driver.findElements(By.xpath(xpathValue));
+		System.out.println(ddList.size());
+		
+		for(int i=0; i<ddList.size(); i++) {
+			System.out.println(ddList.get(i).getText());
+			if(ddList.get(i).getText().equals(DDValue)) {
+				ddList.get(i).click();
+				break;
+			}
+		}
+	}
+	
 	//To Print all Values and Select a Required Value from Drop Down.
 	public static void selectDropDownValue(String xpathValue, String value) 
 	{
@@ -237,7 +252,6 @@ public class TestUtility extends TestBase
 	{
 		Select select = new Select(element);
 		List<WebElement> dropDownValues = select.getOptions();
-
 		List<String> toolsDropDownValues = new ArrayList<String>();
 
 		for(WebElement listOfDropDownValues : dropDownValues) 

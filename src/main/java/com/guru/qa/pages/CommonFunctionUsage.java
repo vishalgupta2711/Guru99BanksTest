@@ -52,11 +52,12 @@ public class CommonFunctionUsage extends TestBase {
 	@FindBy(xpath = "//input[@placeholder='dd/mm/yyyy']")
 	WebElement dateSelectField;
 	
-	@FindBy(xpath = "//ul[@id=\"ui-id-1\"]//li")
-	WebElement dropdown;
+	@FindBy(xpath = "//*[@id='tags']")
+	WebElement dropdownLocator;
 	
 	@FindBy(css = "#easycont > div > div.col-md-6.text-left > div:nth-child(4) > div.panel-body > button")
 	WebElement JavaScriptClickMe;
+	
 	
 	public CommonFunctionUsage() {
 		
@@ -71,7 +72,11 @@ public class CommonFunctionUsage extends TestBase {
 		TestUtility.switchToFrame(0); //Switching to frame with index
 		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, autoCompleteDDValue); //function to sendkeys to textboxes
 		
-		TestUtility.selectExactDDValue(Constants.ListDropdownLocator,autoCompleteDDValue); //selecting exact dd value directly from excel, dd value is not hardcoded in any utilities
+		//TestUtility.dropDownValuesValidation(dropdownLocator);
+		
+		//TestUtility.selectExactDDValue(Constants.ListDropdownLocator,autoCompleteDDValue); //selecting exact dd value directly from excel, dd value is not hardcoded in any utilities
+		TestUtility.selectDDWhenConditionMet(Constants.ListDropdownLocator, autoCompleteDDValue);
+		
 		/*if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJavaScript)) {
 			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJavaScript); //Function to select bootstrap dropdown values
 		}
