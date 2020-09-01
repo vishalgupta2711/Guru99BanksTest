@@ -253,11 +253,8 @@ public class TestUtility extends TestBase
 		Select select = new Select(element);
 		List<WebElement> dropDownValues = select.getOptions();
 		List<String> toolsDropDownValues = new ArrayList<String>();
-
 		for(WebElement listOfDropDownValues : dropDownValues) 
 		{
-			System.out.println("listOfDropDownValues : "+listOfDropDownValues);
-			System.out.println("dropDownValues : " +dropDownValues);
 			toolsDropDownValues.add(listOfDropDownValues.getText());
 		}
 		return toolsDropDownValues;

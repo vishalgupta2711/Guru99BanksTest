@@ -7,8 +7,8 @@
         <methods>
           <include name="endReport"/>
           <include name="setUp"/>
-          <include name="validateAutoCompleteDataFromExcel" invocation-numbers="0 1"/>
           <include name="setLog4j"/>
+          <include name="verifySeleniumEasyDDValue" invocation-numbers="0 1"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.guru.qa.testcases.CommonFunctionUsageTest -->

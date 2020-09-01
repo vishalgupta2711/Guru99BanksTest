@@ -1,10 +1,14 @@
 package com.guru.qa.pages;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.guru.qa.Constants.Constants;
 import com.guru.qa.Utilities.JavaScriptUtilities;
@@ -54,6 +58,9 @@ public class CommonFunctionUsage extends TestBase {
 	
 	@FindBy(xpath = "//*[@id='tags']")
 	WebElement dropdownLocator;
+
+	@FindBy(xpath = " //*[@id=\"navbar-brand-centered\"]/ul[1]/li[1]/ul/li[4]/a")
+	WebElement clickOnSeleniumEasyDDBtn;
 	
 	@FindBy(css = "#easycont > div > div.col-md-6.text-left > div:nth-child(4) > div.panel-body > button")
 	WebElement JavaScriptClickMe;
@@ -71,25 +78,22 @@ public class CommonFunctionUsage extends TestBase {
 		
 		TestUtility.switchToFrame(0); //Switching to frame with index
 		TestUtility.sendKeys(driver, autoCompleteTagsTB, Constants.SHORT_WAIT, autoCompleteDDValue); //function to sendkeys to textboxes
-		
-		//TestUtility.dropDownValuesValidation(dropdownLocator);
-		
-		//TestUtility.selectExactDDValue(Constants.ListDropdownLocator,autoCompleteDDValue); //selecting exact dd value directly from excel, dd value is not hardcoded in any utilities
 		TestUtility.selectDDWhenConditionMet(Constants.ListDropdownLocator, autoCompleteDDValue);
-		
-		/*if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJavaScript)) {
-			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJavaScript); //Function to select bootstrap dropdown values
-		}
-		else if(autoCompleteDDValue.equals(Constants.AutoPopUpValueJava)){
-			TestUtility.selectDropDownValue(Constants.ListDropdownLocator, Constants.AutoPopUpValueJava);
-		}*/
-		
+
 		driver.switchTo().defaultContent();
 		
 		JavaScriptUtilities.clickElementByJavaScript(SelectMenuLink, driver); //clicking on element by javascript
 		TestUtility.switchToFrame(0);
 		JavaScriptUtilities.clickElementByJavaScript(SelectAFileDD, driver);
 		TestUtility.selectDropDownValue(Constants.SelectaFileDDLocator, Constants.SelectaFileDDValue);
+	}
+	
+	public void seleniumEasyDD(String Days) {
+		TestUtility.selectDDWhenConditionMet(Constants.ListDropdownLocatorSeleniumEasy, Days);
+	}
+	
+	public void clickOnSeleniumEasyDD() {
+		JavaScriptUtilities.clickElementByJavaScript(clickOnSeleniumEasyDDBtn, driver);
 	}
 	
 	public void handleAlerts() throws InterruptedException {
