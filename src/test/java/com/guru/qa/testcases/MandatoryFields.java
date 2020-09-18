@@ -1,13 +1,17 @@
 package com.guru.qa.testcases;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class MandatoryFields {
 
@@ -28,54 +32,35 @@ public class MandatoryFields {
 		WebElement MobLbl = driver.findElement(By.xpath("//h3[contains(text(),'Mobile')]"));
 		WebElement LookingLbl = driver.findElement(By.xpath("//h3[contains(text(),'Looking for ')]"));
 		WebElement GenderLbl = driver.findElement(By.xpath("//h3[contains(text(),'Gender')]"));
-		checkMandatoryFields(NameLbl,MobLbl,LookingLbl,GenderLbl);
-		System.out.println("****************************************************************************");
-		startingWith(NameLbl,MobLbl,LookingLbl,GenderLbl);
-	}
-
-	public static void checkMandatoryFields(WebElement NameLbl,WebElement MobLbl,WebElement LookingLbl,WebElement GenderLbl) {
+		WebElement MandatoryList = driver.findElement(By.xpath("//span[contains(text(),'*')]"));
 		
-		ArrayList<WebElement> list = new ArrayList<WebElement>(); 
-			  list.add(NameLbl);
-			  list.add(MobLbl);
-			  list.add(LookingLbl);
-			  list.add(GenderLbl);
-			  System.out.println("\nTotal number of mandatory fields are : " +list.size()+ "\n");
-			  for(int j=0 ; j<list.size() ; j++) {
-				  if(list.get(j).getText().contains("*")) {
-					  System.out.println(list.get(j).getText());
-				  }
-			  }
-			  System.out.println("execute your function here");
-		/*List<WebElement> MandatoryElementList = driver.findElements(By.xpath("//span[contains(text(),'*')]"));
-		System.out.println(MandatoryElementList.size());
-		for(int i=0 ; i<MandatoryElementList.size() ; i++) {
-			if(MandatoryElementList.get(i).isDisplayed()) {
-				System.out.println("All mandatory fields present"); //if all the mandatory fields are present then execute the statements you require else execute the statements you require or break the loop
-				System.out.println(MandatoryElementList.get(i).getText());
-			}
-			else {
-				System.out.println("All mandatory fields are not present");
-			}
-		}*/
-	}
-	public static void startingWith(WebElement NameLbl,WebElement MobLbl,WebElement LookingLbl,WebElement GenderLbl) {
-		ArrayList<WebElement> list = new ArrayList<WebElement>(); 
-		  list.add(NameLbl);
-		  list.add(MobLbl);
-		  list.add(LookingLbl);
-		  list.add(GenderLbl);
-		  System.out.println("\nTotal number of mandatory fields are : " +list.size()+ "\n");
-		  for(int j=0 ; j<list.size() ; j++) {
-			  if(list.get(j).getText().startsWith("N")) {
-				  System.out.println(list.get(j).getText());
-				  break;
-			  }
-			  else {
-				  System.out.println("Other labels are not starting with N");
-			  }
-			
-		  }
+		//Function for getting all the expected values
+		List<WebElement> ExpList = List.of(LookingLbl,GenderLbl,MandatoryList,NameLbl,MobLbl );
+		System.out.println("Expected list size is : " +ExpList.size());
+		System.out.println("Expected list of Web Elements below : ");
+		for(WebElement expElem : ExpList) {
+			System.out.println(expElem.getText());
+		}
+		System.out.println("********************************************************");
 		
+		//Function for getting all the actual values
+		List<WebElement> ActList = driver.findElements(By.xpath("//h3[contains(text(),'')]"));
+		System.out.println("WebElement list size is : " +ActList.size()); // Actual list contains 5 values of which one value will be filtered below
+		System.out.println("Actual list of Web Elements below : ");
+		for(WebElement elem : ActList) {
+			if(elem.getText().contains("*")) { //filetring values containing * - so the list will become 4
+				System.out.println(elem.getText());
+			}			
+		}
+		System.out.println("********************************************************");
+		
+		//Function for comparing Actual with Expected values
+		for (WebElement expected: ExpList) {
+			if (ActList.contains(expected)) {
+				System.out.println("Values Matched : "+expected.getText());
+			} else {
+				System.out.println("Unmatched Value is  :"+expected.getText());
+			}
+		}
 	}
 }
